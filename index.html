@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo News</title>
+  <meta name="description" content="A simple demo news homepage." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2328;
+      --muted: #6a737d;
+      --brand: #0a84ff;
+      --card: #f6f8fa;
+      --border: #d0d7de;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    header {
+      position: sticky; top: 0; background: var(--bg);
+      border-bottom: 1px solid var(--border); z-index: 10;
+    }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0;
+    }
+    .brand { font-weight: 800; letter-spacing: 0.2px; }
+    nav a {
+      margin-left: 16px; color: var(--muted);
+    }
+    nav a.active, nav a:hover { color: var(--brand); }
+    .hero {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h2 { margin: 0 0 8px; font-size: 28px; }
+    .hero p { margin: 0; color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      padding: 24px 0 40px;
+    }
+    .card {
+      grid-column: span 4;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    .thumb {
+      display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #eaeef2;
+    }
+    .card-body { padding: 12px; }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .card p { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+    .meta { font-size: 12px; color: var(--muted); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 16px 0; color: var(--muted); font-size: 14px;
+    }
+    @media (max-width: 900px) {
+      .card { grid-column: span 6; }
+    }
+    @media (max-width: 600px) {
+      nav { display: none; }
+      .card { grid-column: span 12; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#content" style="position:absolute;left:-999px;top:-999px">Skip to content</a>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="/">Demo News</a>
+      <nav aria-label="Primary">
+        <a class="active" href="#">Home</a>
+        <a href="#">World</a>
+        <a href="#">Technology</a>
+        <a href="#">Sports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container" role="main">
+    <section class="hero" aria-labelledby="top-stories">
+      <h2 id="top-stories">Top stories</h2>
+      <p>Latest headlines and updates, all in one place.</p>
+    </section>
+
+    <section class="grid" aria-label="Articles">
+      <article class="card">
+        <a href="#">
+          <img class="thumb" src="https://picsum.photos/seed/news1/800/450" alt="City skyline at sunrise" loading="lazy" />
+          <div class="card-body">
+            <h3>Local council approves new transit plan</h3>
+            <p>The multi-year project aims to reduce congestion and improve accessibility across downtown.</p>
+            <div class="meta">City · Jan 7, 2026</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="#">
+          <img class="thumb" src="https://picsum.photos/seed/news2/800/450" alt="Person using a laptop with code on screen" loading="lazy" />
+          <div class="card-body">
+            <h3>Startups rally around open standards</h3>
+            <p>Developers embrace interoperability to speed up integration and lower costs.</p>
+            <div class="meta">Technology · Jan 7, 2026</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="#">
+          <img class="thumb" src="https://picsum.photos/seed/news3/800/450" alt="Stadium lights over a field" loading="lazy" />
+          <div class="card-body">
+            <h3>Championship race set for thrilling finale</h3>
+            <p>Top contenders prepare for a decisive matchup after a season of upsets.</p>
+            <div class="meta">Sports · Jan 7, 2026</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="#">
+          <img class="thumb" src="https://picsum.photos/seed/news4/800/450" alt="Hands holding a sapling" loading="lazy" />
+          <div class="card-body">
+            <h3>Community gardens expand across neighborhoods</h3>
+            <p>Volunteers transform vacant lots into vibrant green spaces for all.</p>
+            <div class="meta">Lifestyle · Jan 7, 2026</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="#">
+          <img class="thumb" src="https://picsum.photos/seed/news5/800/450" alt="Conference audience watching a keynote" loading="lazy" />
+          <div class="card-body">
+            <h3>Annual summit highlights AI safety and tooling</h3>
+            <p>Panels emphasize collaboration between researchers and practitioners.</p>
+            <div class="meta">Business · Jan 7, 2026</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="#">
+          <img class="thumb" src="https://picsum.photos/seed/news6/800/450" alt="Coastal landscape with waves" loading="lazy" />
+          <div class="card-body">
+            <h3>Coastal restoration project meets key milestone</h3>
+            <p>New habitats show early signs of recovery following years of erosion.</p>
+            <div class="meta">Environment · Jan 7, 2026</div>
+          </div>
+        </a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Demo News • All content for demonstration purposes only.
+    </div>
+  </footer>
+</body>
+</html>
